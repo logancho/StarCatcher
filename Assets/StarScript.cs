@@ -7,6 +7,9 @@ public class StarScript : MonoBehaviour
     // Start is called before the first frame update
 
     //Fields
+    // explodes upon "death"
+    public GameObject deathExplosion;
+
     //Lifetime duration -> should call Die when lifetime is up
     public float lifetime;
     float elapsedTime = 0;
@@ -30,6 +33,8 @@ public class StarScript : MonoBehaviour
     void Die()
     {
         //Spawn particle simulation upon death
+        Instantiate(this.deathExplosion, this.gameObject.transform.position,
+        Quaternion.AngleAxis(-90, Vector3.right));
         Destroy(gameObject);
     }
 }
