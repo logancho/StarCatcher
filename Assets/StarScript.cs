@@ -52,6 +52,13 @@ public class StarScript : MonoBehaviour
         Instantiate(this.deathExplosion, this.gameObject.transform.position,
         Quaternion.AngleAxis(-90, Vector3.right));
         Debug.Log("dead object is: " + this.gameObject.tag);
+
+        // call global increase score function  
+        GameObject obj = GameObject.Find("Global");
+        GlobalScript g = obj.GetComponent<GlobalScript>();
+        g.UpdateScore(); 
+        
+
         interactable.attachedToHand.DetachObject(gameObject, false);
         Destroy(gameObject);
     }
