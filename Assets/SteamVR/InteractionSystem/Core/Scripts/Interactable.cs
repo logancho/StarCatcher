@@ -14,8 +14,8 @@ namespace Valve.VR.InteractionSystem
     //-------------------------------------------------------------------------
     public class Interactable : MonoBehaviour
     {
-        // star object to destroy 
-        public GameObject starObject;
+        // explodes upon "death"
+        public GameObject deathExplosion;
 
         [Tooltip("Activates an action set on attach and deactivates on detach")]
         public SteamVR_ActionSet activateActionSetOnAttach;
@@ -323,14 +323,7 @@ namespace Valve.VR.InteractionSystem
                     (hand.otherHand.currentAttachedObjectInfo.Value.interactable != null &&
                      hand.otherHand.currentAttachedObjectInfo.Value.interactable.activateActionSetOnAttach != this.activateActionSetOnAttach))
                 {
-                    activateActionSetOnAttach.Deactivate(hand.handType);
-
-                    // star should call die function 
-                    
-                    Debug.Log("leg go");
-                    Destroy(this.gameObject); 
-                    // StarScript starScript = this.gameObject.GetComponent<StarScript>();
-                    // starScript.Die(); 
+                    activateActionSetOnAttach.Deactivate(hand.handType); 
                 }
             }
 
