@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarManager : MonoBehaviour
+public class DebrisManager : MonoBehaviour
 {
+
     //Fields
-    //Star prefab
+    //Debris prefab
+    public GameObject DebrisPrefab;
 
     //Spawning bounds?
     float ceiling = 10.0f;
-    
+
     // for playing width: 
     // float halfWidth = 5.0f;
-    
+
     // for testing width: 
     float halfWidth = 2.5f;
 
     //Spawning timer
-    public GameObject StarPrefab;
-
     float spawnTimer;
     float elapsedTime;
 
@@ -30,12 +30,12 @@ public class StarManager : MonoBehaviour
     {
         return Quaternion.Euler(0, 0, 0);
     }
-    void SpawnStar()
+    void SpawnDebris()
     {
-        GameObject newStar = (GameObject)Instantiate(StarPrefab, RandomSpawnLocation(), RandomRotation()) as GameObject;
+        GameObject newDebris = (GameObject)Instantiate(DebrisPrefab, RandomSpawnLocation(), RandomRotation()) as GameObject;
         float seed = Random.value;
-        newStar.GetComponent<StarScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
-        Rigidbody rb = newStar.GetComponent<Rigidbody>();
+        newDebris.GetComponent<DebrisScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
+        Rigidbody rb = newDebris.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(0, -(50.0f + 500.0f * seed), 0));
     }
     // Start is called before the first frame update
@@ -57,7 +57,7 @@ public class StarManager : MonoBehaviour
             spawnTimer = Random.Range(1.0f, 2.0f);
             //Spawn a random number of stars, at a random number of x-z positions and a random height, at random sizes and speeds
             //For now, spawn just a single star, with some random orientation , and with some force value
-            SpawnStar();
+            SpawnDebris();
         }
     }
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using Valve.VR.InteractionSystem; 
+using Valve.VR.InteractionSystem;
 
-public class StarScript : MonoBehaviour
-{
+public class DebrisScript : MonoBehaviour
+{ 
     // Start is called before the first frame update
 
     //Fields
@@ -18,27 +18,28 @@ public class StarScript : MonoBehaviour
 
     // interactable  
     private Interactable interactable;
-    private Hand hand; 
+    private Hand hand;
 
     void Start()
     {
         //lifetime = Random.Range(0.5f, 3.0f);
         // Debug.Log("bruh");
         interactable = GetComponent<Interactable>();
-        hand = interactable.attachedToHand;  
+        hand = interactable.attachedToHand;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (interactable.attachedToHand != null) 
+        if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             Debug.Log("held tag is: " + this.gameObject.tag);
             Die(); 
         }
-        elapsedTime += Time.deltaTime;
+
         /* 
+        elapsedTime += Time.deltaTime;
         if (elapsedTime > lifetime)
         {
             Die();
@@ -56,3 +57,4 @@ public class StarScript : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
