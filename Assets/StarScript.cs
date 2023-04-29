@@ -46,6 +46,21 @@ public class StarScript : MonoBehaviour
         */ 
     }
 
+    // whenever star collides with floor, should die 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Collider collider = collision.collider; 
+        if (collider.CompareTag("Floor"))
+        {
+            Debug.Log("collided with floor, died");
+
+            //Spawn particle simulation upon death
+            Instantiate(this.deathExplosion, this.gameObject.transform.position,
+            Quaternion.AngleAxis(-90, Vector3.right));
+            Destroy(gameObject);
+        }
+    }
+
     void Die()
     {
         //Spawn particle simulation upon death

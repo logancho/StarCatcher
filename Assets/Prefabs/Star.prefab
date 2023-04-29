@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7481417477226442793}
   - component: {fileID: 7481417477226442794}
   - component: {fileID: 7481417477226442795}
-  - component: {fileID: 7481417477226442796}
   - component: {fileID: 7481417477226442797}
   - component: {fileID: 7481417477226442798}
   - component: {fileID: 7481417477226442799}
   - component: {fileID: 7481417477226442792}
+  - component: {fileID: 6399045431312192885}
   m_Layer: 0
   m_Name: Star
   m_TagString: Star
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7481417477226442784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7424242, y: 0.26, z: 3.24}
-  m_LocalScale: {x: 0.21, y: 0.21, z: 0.21}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7481417477226442784}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 29c60ed94553117439b70a07b58f060b, type: 2}
 --- !u!23 &7481417477226442795
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d2e36aacd7dc084b96e0755f1af4137, type: 2}
+  - {fileID: 2100000, guid: 866d9d27ffd61144a988314e28caf8d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7481417477226442796
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481417477226442784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7481417477226442797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,3 +227,17 @@ MonoBehaviour:
   deathExplosion: {fileID: 8308296316161418541, guid: 0b06a7318533d5e439f45c60efb88b65,
     type: 3}
   lifetime: 0
+--- !u!64 &6399045431312192885
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481417477226442784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 29c60ed94553117439b70a07b58f060b, type: 2}

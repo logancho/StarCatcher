@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - Debris
   - RegCube
+  - Floor
   layers:
   - Default
   - TransparentFX

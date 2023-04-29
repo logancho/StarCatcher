@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 9183553148031707308}
   - component: {fileID: 7234259845620130556}
   - component: {fileID: 6688312788168500981}
-  - component: {fileID: 2548834097267726606}
   - component: {fileID: 4522665252143644406}
   - component: {fileID: 7618067959223334882}
   - component: {fileID: 8884067056278502395}
   - component: {fileID: 6174047572887783294}
+  - component: {fileID: 2134704218}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Debris
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537031049889850982}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1365823602920824337, guid: 0f12a1de05e47854b8c6fe01a7ee04f5, type: 3}
 --- !u!23 &6688312788168500981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2548834097267726606
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537031049889850982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4522665252143644406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,3 +227,17 @@ MonoBehaviour:
   deathExplosion: {fileID: 6370250761588150306, guid: b997ca9e7d9afe64ca4dbc4b96b629e8,
     type: 3}
   lifetime: 0
+--- !u!64 &2134704218
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537031049889850982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1365823602920824337, guid: 0f12a1de05e47854b8c6fe01a7ee04f5, type: 3}
