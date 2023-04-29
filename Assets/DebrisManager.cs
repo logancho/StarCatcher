@@ -24,7 +24,8 @@ public class DebrisManager : MonoBehaviour
 
     Vector3 RandomSpawnLocation()
     {
-        return new Vector3(Random.Range(-halfWidth, halfWidth), ceiling * Random.Range(0.75f, 1.25f), Random.Range(-halfWidth, halfWidth));
+        //return new Vector3(Random.Range(-halfWidth, halfWidth), ceiling * Random.Range(0.75f, 1.25f), Random.Range(-halfWidth, halfWidth));
+        return new Vector3(0, ceiling, 0);
     }
     Quaternion RandomRotation()
     {

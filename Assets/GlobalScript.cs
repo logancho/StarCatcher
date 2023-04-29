@@ -22,12 +22,12 @@ public class GlobalScript : MonoBehaviour
     public void UpdateScore()
     {
         score++;
-        Debug.Log("score: " + score); 
+        // Debug.Log("score: " + score); 
     }
 
     public void DecreaseHealth()
     {
-        if (health >= 0) {
+        if (health > 0) {
             health -= 10;
         }
    

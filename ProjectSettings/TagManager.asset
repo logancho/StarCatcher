@@ -10,6 +10,10 @@ TagManager:
   - Debris
   - RegCube
   - Floor
+  - Head
+  - Body
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX

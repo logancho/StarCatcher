@@ -14,8 +14,6 @@ namespace Valve.VR.InteractionSystem
     //-------------------------------------------------------------------------
     public class Interactable : MonoBehaviour
     {
-        // explodes upon "death"
-        public GameObject deathExplosion;
 
         [Tooltip("Activates an action set on attach and deactivates on detach")]
         public SteamVR_ActionSet activateActionSetOnAttach;

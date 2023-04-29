@@ -52,21 +52,34 @@ public class StarScript : MonoBehaviour
         Collider collider = collision.collider; 
         if (collider.CompareTag("Floor"))
         {
-            Debug.Log("collided with floor, died");
+            // Debug.Log("star collided with floor, died");
 
             //Spawn particle simulation upon death
             Instantiate(this.deathExplosion, this.gameObject.transform.position,
             Quaternion.AngleAxis(-90, Vector3.right));
             Destroy(gameObject);
         }
+
+        // star hit player's head/hands/body 
+        if (collider.CompareTag("Head") || collider.CompareTag("Body") || collider.CompareTag("LeftHand") || collider.CompareTag("RightHand"))
+        {
+            Debug.Log("star collided with " + collider.tag);
+
+            //Spawn particle simulation upon death
+            Instantiate(this.deathExplosion, this.gameObject.transform.position,
+            Quaternion.AngleAxis(-90, Vector3.right));
+            Destroy(gameObject);
+        }
+
     }
 
+    
     void Die()
     {
         //Spawn particle simulation upon death
         Instantiate(this.deathExplosion, this.gameObject.transform.position,
         Quaternion.AngleAxis(-90, Vector3.right));
-        Debug.Log("dead object is: " + this.gameObject.tag);
+        // Debug.Log("dead object is: " + this.gameObject.tag);
 
         // call global increase score function  
         GameObject obj = GameObject.Find("Global");

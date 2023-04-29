@@ -31,12 +31,13 @@ public class DebrisScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interactable.attachedToHand != null)
+        // debris caught by hand 
+/*        if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             Debug.Log("held tag is: " + this.gameObject.tag);
             Die(); 
-        }
+        }*/
 
         /* 
         elapsedTime += Time.deltaTime;
@@ -53,13 +54,32 @@ public class DebrisScript : MonoBehaviour
         Collider collider = collision.collider;
         if (collider.CompareTag("Floor"))
         {
-            Debug.Log("debris collided with floor, died");
+            
+            // Debug.Log("debris collided with floor, died");
 
             //Spawn particle simulation upon death
             Instantiate(this.deathExplosion, this.gameObject.transform.position,
             Quaternion.AngleAxis(-90, Vector3.right));
             Destroy(gameObject);
         }
+
+        // debris hit player's head/hands/body -> decrease health 
+        if (collider.CompareTag("Head") || collider.CompareTag("Body") || collider.CompareTag("LeftHand") || collider.CompareTag("RightHand"))
+        {
+            // Debug.Log("debris collided with " + collider.tag);
+
+            //Spawn particle simulation upon death
+            Instantiate(this.deathExplosion, this.gameObject.transform.position,
+            Quaternion.AngleAxis(-90, Vector3.right));
+
+            // call global decrease health function  
+            GameObject obj = GameObject.Find("Global");
+            GlobalScript g = obj.GetComponent<GlobalScript>();
+            g.DecreaseHealth();
+
+            Destroy(gameObject);
+        }
+
     }
 
 
@@ -68,9 +88,9 @@ public class DebrisScript : MonoBehaviour
         //Spawn particle simulation upon death
         Instantiate(this.deathExplosion, this.gameObject.transform.position,
         Quaternion.AngleAxis(-90, Vector3.right));
-        Debug.Log("dead object is: " + this.gameObject.tag);
+        // Debug.Log("dead object is: " + this.gameObject.tag);
 
-        // call global increase score function  
+        // call global decrease health function  
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
         g.DecreaseHealth();
