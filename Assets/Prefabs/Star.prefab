@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7481417477226442799}
   - component: {fileID: 7481417477226442792}
   - component: {fileID: 6399045431312192885}
+  - component: {fileID: -8751352193924732655}
   m_Layer: 0
   m_Name: Star
   m_TagString: Star
@@ -100,8 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 8308296316161418541, guid: 0b06a7318533d5e439f45c60efb88b65,
-    type: 3}
   activateActionSetOnAttach:
     actionSetPath: 
   hideHandOnAttach: 1
@@ -241,3 +240,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 29c60ed94553117439b70a07b58f060b, type: 2}
+--- !u!114 &-8751352193924732655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481417477226442784}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d026f50d6e4ef4ac5a086de2cd31b974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathExplosion: {fileID: 6370250761588150306, guid: b997ca9e7d9afe64ca4dbc4b96b629e8,
+    type: 3}
+  growTime: 10
+  scale: 50

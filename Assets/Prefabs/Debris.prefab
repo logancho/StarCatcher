@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8884067056278502395}
   - component: {fileID: 6174047572887783294}
   - component: {fileID: 2134704218}
+  - component: {fileID: 6402853491978342822}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Debris
@@ -100,8 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 6370250761588150306, guid: b997ca9e7d9afe64ca4dbc4b96b629e8,
-    type: 3}
   activateActionSetOnAttach:
     actionSetPath: 
   hideHandOnAttach: 1
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537031049889850982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ec8dc0c11160b14db5be8bded9f973c, type: 3}
   m_Name: 
@@ -241,3 +240,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1365823602920824337, guid: 0f12a1de05e47854b8c6fe01a7ee04f5, type: 3}
+--- !u!114 &6402853491978342822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537031049889850982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44941164f48a4524841340ae1f46272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathExplosion: {fileID: 6370250761588150306, guid: b997ca9e7d9afe64ca4dbc4b96b629e8,
+    type: 3}
+  growTime: 3
+  lifetime: 0
+  scale: 0.87
