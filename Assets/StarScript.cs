@@ -20,12 +20,15 @@ public class StarScript : MonoBehaviour
     private Interactable interactable;
     private Hand hand; 
 
+    private int pointValue; 
+
     void Start()
     {
         //lifetime = Random.Range(0.5f, 3.0f);
         // Debug.Log("bruh");
         interactable = GetComponent<Interactable>();
-        hand = interactable.attachedToHand;  
+        hand = interactable.attachedToHand;
+        pointValue = 1; 
     }
 
     // Update is called once per frame
@@ -84,7 +87,7 @@ public class StarScript : MonoBehaviour
         // call global increase score function  
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
-        g.UpdateScore(); 
+        g.UpdateScore(pointValue); 
         
 
         interactable.attachedToHand.DetachObject(gameObject, false);
