@@ -5434,7 +5434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d2a0b97b76548728671c59585ce0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ceiling: 10.98
+  ceiling: 8
   StarPrefab: {fileID: 7481417477226442784, guid: 5c5e39a46620d9c4780fe1f758454c2a,
     type: 3}
   directionRandomness: 0.2
@@ -5731,6 +5731,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95638225612184518, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1353881982696016191, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5746,10 +5751,45 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2464108883562714333, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655207151105118742, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994058304514052784, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082022180366546794, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112854409504999380, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259665214492194176, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6987416151146858923, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: m_text
       value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058650603199407762, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8432224636815778380, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
@@ -5766,6 +5806,11 @@ PrefabInstance:
       propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8926992372520715914, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8968923527964196711, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5775,6 +5820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130024478459193216, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -5805,7 +5855,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 695954744}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 23
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -6179,7 +6229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebrisPrefab: {fileID: 537031049889850982, guid: 23974c195343d3b41b1d7bf992012762,
     type: 3}
-  ceiling: 10
+  ceiling: 8
   directionRandomness: 0.2
 --- !u!1 &1671509969
 GameObject:

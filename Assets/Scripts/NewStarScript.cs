@@ -38,10 +38,10 @@ public class NewStarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //SteamVR_Input.left
         if (interactable.attachedToHand != null) 
         {
-            interactable.attachedToHand.GetComponent<ParticleSystem>().enableEmission = false;
-            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             Debug.Log("held tag is: " + this.gameObject.tag);
 
             AudioSource.PlayClipAtPoint(pointSound,
@@ -57,17 +57,19 @@ public class NewStarScript : MonoBehaviour
         {
             float cur = scale * elapsedTime / growTime;
             this.transform.localScale = new Vector3(cur, cur, cur);
+        } else
+        {
+            this.transform.localScale = new Vector3(scale, scale, scale);
         }
     }
-
+    /*
     // whenever star collides with floor, should die 
     private void OnCollisionEnter(Collision collision)
     {
-        this.gameObject.GetComponent<Rigidbody>().useGravity = true;
         Collider collider = collision.collider;
         if (collider.CompareTag("Floor"))
         {
-
+            //this.gameObject.GetComponent<Rigidbody>().useGravity = true;
             AudioSource.PlayClipAtPoint(deathSound,
             gameObject.transform.position, 0.6f);
             // Debug.Log("star collided with floor, died");
@@ -77,6 +79,54 @@ public class NewStarScript : MonoBehaviour
             Quaternion.AngleAxis(-90, Vector3.right));
             Destroy(gameObject);
         }
+    }
+    */
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand) && other.CompareTag("Left Hand"))
+        if (other.CompareTag("LeftHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        {
+            Debug.Log("Bruh");
+
+            //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            Debug.Log("held tag is: " + this.gameObject.tag);
+
+            AudioSource.PlayClipAtPoint(pointSound,
+            gameObject.transform.position, 0.6f);
+
+            Die();
+
+        }
+
+        if (other.CompareTag("RightHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Debug.Log("Bruh");
+
+            //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            Debug.Log("held tag is: " + this.gameObject.tag);
+
+            AudioSource.PlayClipAtPoint(pointSound,
+            gameObject.transform.position, 0.6f);
+
+            Die();
+
+        }
+
+
+        if (other.CompareTag("Floor"))
+        {
+            //this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            AudioSource.PlayClipAtPoint(deathSound,
+            gameObject.transform.position, 0.6f);
+            // Debug.Log("star collided with floor, died");
+
+            //Spawn particle simulation upon death
+            Instantiate(this.deathExplosion, this.gameObject.transform.position,
+            Quaternion.AngleAxis(-90, Vector3.right));
+            Destroy(gameObject);
+        }
+        //speed = speed * -1;
     }
 
     void Die()

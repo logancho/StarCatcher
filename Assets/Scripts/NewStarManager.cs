@@ -77,6 +77,7 @@ public class NewStarManager : MonoBehaviour
     {
         Vector3 randLocation = RandomSpawnLocation();
         Quaternion randRotation = RandomRotation(randLocation);
+        randLocation += new Vector3(0, 2.0f, 0);
         GameObject newStar = (GameObject)Instantiate(StarPrefab, randLocation, randRotation) as GameObject;
 
         
@@ -109,7 +110,7 @@ public class NewStarManager : MonoBehaviour
     void Start()
     {
         elapsedTime = 0;
-        spawnTimer = Random.Range(1.0f, 2.0f);
+        spawnTimer = Random.Range(0.5f, 1.0f);
         //spawnTimer = 0.2f;
     }
 
@@ -122,7 +123,7 @@ public class NewStarManager : MonoBehaviour
         if (elapsedTime > spawnTimer)
         {
             elapsedTime = 0;
-            spawnTimer = Random.Range(1.0f, 2.0f);
+            spawnTimer = Random.Range(0.2f, 0.8f);
             //spawnTimer = 0.2f;
             //Spawn a random number of stars, at a random number of x-z positions and a random height, at random sizes and speeds
             //For now, spawn just a single star, with some random orientation , and with some force value

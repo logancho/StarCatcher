@@ -72,6 +72,7 @@ public class NewDebrisManager : MonoBehaviour
     {
         Vector3 randLocation = RandomSpawnLocation();
         Quaternion randRotation = RandomRotation(randLocation);
+        randLocation += new Vector3(0, 2.0f, 0);
         GameObject newDebris = (GameObject)Instantiate(DebrisPrefab, randLocation, randRotation) as GameObject;
         float seed = Random.value;
         newDebris.GetComponent<NewDebrisScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
@@ -82,7 +83,7 @@ public class NewDebrisManager : MonoBehaviour
     void Start()
     {
         elapsedTime = 0;
-        spawnTimer = Random.Range(1.0f, 2.0f);
+        spawnTimer = Random.Range(3.0f, 7.0f);
     }
 
     // Update is called once per frame
@@ -94,7 +95,7 @@ public class NewDebrisManager : MonoBehaviour
         if (elapsedTime > spawnTimer)
         {
             elapsedTime = 0;
-            spawnTimer = Random.Range(1.0f, 2.0f);
+            spawnTimer = Random.Range(4.0f, 7.0f);
             //Spawn a random number of stars, at a random number of x-z positions and a random height, at random sizes and speeds
             //For now, spawn just a single star, with some random orientation , and with some force value
             SpawnDebris();

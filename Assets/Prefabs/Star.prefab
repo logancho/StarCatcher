@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 7481417477226442797}
   - component: {fileID: 7481417477226442798}
   - component: {fileID: 7481417477226442799}
-  - component: {fileID: 6399045431312192885}
   - component: {fileID: -8751352193924732655}
   - component: {fileID: -5613924299255310356}
   - component: {fileID: -2472728314896798834}
   - component: {fileID: -4496937708905926766}
   - component: {fileID: -730419702080032263}
+  - component: {fileID: 7347200324434680437}
   m_Layer: 0
   m_Name: Star
   m_TagString: Star
@@ -214,20 +214,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!64 &6399045431312192885
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481417477226442784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 29c60ed94553117439b70a07b58f060b, type: 2}
 --- !u!114 &-8751352193924732655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5218,3 +5204,16 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!65 &7347200324434680437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481417477226442784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0275232, y: 0.03250888, z: 0.015266657}
+  m_Center: {x: 0, y: 0.00000055134296, z: -0.00005352497}

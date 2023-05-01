@@ -54,7 +54,7 @@ public class GameUIController : MonoBehaviour
             timerText.color = Color.red;
         }
         else {
-            timerText.color = Color.black; 
+            timerText.color = Color.white; 
         }
 
         timerText.text = $"{minutes:00}:{seconds:00}";
@@ -65,6 +65,7 @@ public class GameUIController : MonoBehaviour
     {
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
+        scoreText.color = Color.white;
         scoreText.text = "Score: " + g.score.ToString(); 
     }
 }
