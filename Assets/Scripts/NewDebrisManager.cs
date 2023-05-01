@@ -10,7 +10,7 @@ public class NewDebrisManager : MonoBehaviour
     public GameObject DebrisPrefab;
 
     //Spawning bounds?
-    float ceiling = 10.0f;
+    public float ceiling = 10.0f;
 
     // for playing width: 
     // float halfWidth = 5.0f;
@@ -74,7 +74,7 @@ public class NewDebrisManager : MonoBehaviour
         Quaternion randRotation = RandomRotation(randLocation);
         GameObject newDebris = (GameObject)Instantiate(DebrisPrefab, randLocation, randRotation) as GameObject;
         float seed = Random.value;
-        newDebris.GetComponent<DebrisScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
+        newDebris.GetComponent<NewDebrisScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
         Rigidbody rb = newDebris.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(0, 0, (20.0f + 150.0f * seed)));
     }

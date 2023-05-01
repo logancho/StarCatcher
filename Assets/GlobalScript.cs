@@ -19,9 +19,9 @@ public class GlobalScript : MonoBehaviour
         
     }
 
-    public void UpdateScore()
+    public void UpdateScore(int pointValue)
     {
-        score++;
+        score += pointValue;
         // Debug.Log("score: " + score); 
     }
 
