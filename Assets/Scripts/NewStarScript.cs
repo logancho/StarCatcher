@@ -20,6 +20,8 @@ public class NewStarScript : MonoBehaviour
     public float scale;
 
     public int pointValue;
+
+    //public flo
     // interactable  
     private Interactable interactable;
     private Hand hand; 
@@ -57,7 +59,8 @@ public class NewStarScript : MonoBehaviour
         {
             float cur = scale * elapsedTime / growTime;
             this.transform.localScale = new Vector3(cur, cur, cur);
-        } else
+        }
+        else
         {
             this.transform.localScale = new Vector3(scale, scale, scale);
         }

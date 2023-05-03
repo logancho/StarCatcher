@@ -15,7 +15,6 @@ public class NewDebrisScript : MonoBehaviour
 
     //Lifetime duration -> should call Die when lifetime is up
     public float growTime;
-    public float lifetime;
     float elapsedTime = 0;
     public float scale;
 
@@ -27,7 +26,7 @@ public class NewDebrisScript : MonoBehaviour
     {
         //lifetime = Random.Range(0.5f, 3.0f);
         // Debug.Log("bruh");
-        growTime = 3.5f;
+        //growTime = 3.5f;
         scale = 0.5f;
         interactable = GetComponent<Interactable>();
         hand = interactable.attachedToHand;
