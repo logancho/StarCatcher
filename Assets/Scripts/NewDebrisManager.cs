@@ -11,6 +11,7 @@ public class NewDebrisManager : MonoBehaviour
 
     //Spawning bounds?
     public float ceiling = 10.0f;
+    public float height;
 
     // for playing width: 
     // float halfWidth = 5.0f;
@@ -22,7 +23,10 @@ public class NewDebrisManager : MonoBehaviour
     float spawnTimer;
     float elapsedTime;
 
-    public float directionRandomness = 0.4f;
+    public float directionRandomness;
+    public float minTimeWait;
+    public float maxTimeWait;
+
 
 
     Vector3 SquareToDiskConcentric(Vector2 sample)
@@ -72,10 +76,10 @@ public class NewDebrisManager : MonoBehaviour
     {
         Vector3 randLocation = RandomSpawnLocation();
         Quaternion randRotation = RandomRotation(randLocation);
-        randLocation += new Vector3(0, 2.0f, 0);
+        randLocation += new Vector3(0, height, 0);
         GameObject newDebris = (GameObject)Instantiate(DebrisPrefab, randLocation, randRotation) as GameObject;
         float seed = Random.value;
-        newDebris.GetComponent<NewDebrisScript>().lifetime = seed * 5.0f + 5.0f; //Ranges between 5 and 10 sec
+        newDebris.GetComponent<NewDebrisScript>().growTime = (1.0f - seed) * 3.5f + 0.3f; //Ranges between 0.3 and 3.8 sec
         Rigidbody rb = newDebris.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(0, 0, (20.0f + 150.0f * seed)));
     }
@@ -83,7 +87,7 @@ public class NewDebrisManager : MonoBehaviour
     void Start()
     {
         elapsedTime = 0;
-        spawnTimer = Random.Range(3.0f, 7.0f);
+        spawnTimer = Random.Range(minTimeWait, maxTimeWait);
     }
 
     // Update is called once per frame
@@ -95,7 +99,7 @@ public class NewDebrisManager : MonoBehaviour
         if (elapsedTime > spawnTimer)
         {
             elapsedTime = 0;
-            spawnTimer = Random.Range(4.0f, 7.0f);
+            spawnTimer = Random.Range(minTimeWait, maxTimeWait);
             //Spawn a random number of stars, at a random number of x-z positions and a random height, at random sizes and speeds
             //For now, spawn just a single star, with some random orientation , and with some force value
             SpawnDebris();

@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 537031049889850982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.21, y: 0.21, z: 0.21}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -240,5 +240,4 @@ MonoBehaviour:
     type: 3}
   deathSound: {fileID: 8300000, guid: 56588980b541a4017846e219eb6bd965, type: 3}
   growTime: 3
-  lifetime: 0
   scale: 0.87
