@@ -5435,9 +5435,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ceiling: 8
+  height: 0
   StarPrefab: {fileID: 7481417477226442784, guid: 5c5e39a46620d9c4780fe1f758454c2a,
     type: 3}
   directionRandomness: 0.2
+  minTimeWait: 0
+  maxTimeWait: 0
 --- !u!1 &361312657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6660,7 +6663,10 @@ MonoBehaviour:
   DebrisPrefab: {fileID: 537031049889850982, guid: 23974c195343d3b41b1d7bf992012762,
     type: 3}
   ceiling: 8
+  height: 0
   directionRandomness: 0.2
+  minTimeWait: 0
+  maxTimeWait: 0
 --- !u!1 &1599162640
 GameObject:
   m_ObjectHideFlags: 0

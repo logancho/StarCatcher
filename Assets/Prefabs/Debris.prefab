@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4522665252143644406}
   - component: {fileID: 7618067959223334882}
   - component: {fileID: 8884067056278502395}
-  - component: {fileID: 2134704218}
   - component: {fileID: 6402853491978342822}
+  - component: {fileID: -8705222427617305449}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Debris
@@ -210,20 +210,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!64 &2134704218
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537031049889850982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1365823602920824337, guid: 0f12a1de05e47854b8c6fe01a7ee04f5, type: 3}
 --- !u!114 &6402853491978342822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +227,16 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 56588980b541a4017846e219eb6bd965, type: 3}
   growTime: 3
   scale: 0.87
+--- !u!65 &-8705222427617305449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537031049889850982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.469827, y: 0.53924346, z: 0.77407753}
+  m_Center: {x: 0.038734287, y: 0.022742577, z: 0.07675703}
