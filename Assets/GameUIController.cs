@@ -8,18 +8,10 @@ public class GameUIController : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText; 
 
-/*    private float startTime;
-    private float currentTime;*/
-
-    private float timeLeft; 
-
-    // Initialize with some starting health value and start the timer
+     
     void Start()
     {
-        // SetHealth(100);
-        // startTime = Time.time;
-
-        timeLeft = 120; 
+ 
     }
 
     void Update()
@@ -30,9 +22,7 @@ public class GameUIController : MonoBehaviour
     }
 
     public void UpdateHealth()
-    {
-        // healthBar.value = health;
-
+    { 
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
         healthBar.value = g.health; 
@@ -41,15 +31,17 @@ public class GameUIController : MonoBehaviour
 
     private void UpdateTimer()
     {
-        // currentTime = Time.time - startTime;
+        GameObject obj = GameObject.Find("Global");
+        GlobalScript g = obj.GetComponent<GlobalScript>();
         
-        timeLeft -= Time.deltaTime;
-        if (timeLeft < 0) timeLeft = 0;
+        // decrease time left 
+        g.timeLeft -= Time.deltaTime;
+        if (g.timeLeft < 0) g.timeLeft = 0;
 
-        int minutes = (int)(timeLeft / 60);
-        int seconds = (int)(timeLeft % 60);
+        int minutes = (int)(g.timeLeft / 60);
+        int seconds = (int)(g.timeLeft % 60);
 
-        if (timeLeft <= 10)
+        if (g.timeLeft <= 10)
         {
             timerText.color = Color.red;
         }
