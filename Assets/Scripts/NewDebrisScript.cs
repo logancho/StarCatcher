@@ -12,6 +12,7 @@ public class NewDebrisScript : MonoBehaviour
     // explodes upon "death"
     public GameObject deathExplosion;
     public AudioClip deathSound;
+    public AudioClip collectSound;
 
     //Lifetime duration -> should call Die when lifetime is up
     public float growTime;
@@ -24,9 +25,6 @@ public class NewDebrisScript : MonoBehaviour
 
     void Start()
     {
-        //lifetime = Random.Range(0.5f, 3.0f);
-        // Debug.Log("bruh");
-        //growTime = 3.5f;
         scale = 0.5f;
         interactable = GetComponent<Interactable>();
         hand = interactable.attachedToHand;
@@ -55,11 +53,38 @@ public class NewDebrisScript : MonoBehaviour
     // whenever debris collides with floor, should die 
     private void OnTriggerEnter(Collider collider)
     {
+        if (collider.CompareTag("LeftHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        {
+            Debug.Log("Bruh");
+
+            //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            Debug.Log("held tag is: " + this.gameObject.tag);
+
+            AudioSource.PlayClipAtPoint(collectSound,
+            gameObject.transform.position, 0.6f);
+
+            Die();
+        }
+
+        if (collider.CompareTag("RightHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Debug.Log("Bruh");
+
+            //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            Debug.Log("held tag is: " + this.gameObject.tag);
+
+            AudioSource.PlayClipAtPoint(collectSound,
+            gameObject.transform.position, 0.6f);
+
+            Die();
+
+        }
+
         if (collider.CompareTag("Floor"))
         {
 
             AudioSource.PlayClipAtPoint(deathSound,
-gameObject.transform.position, 0.3f);
+            gameObject.transform.position, 0.3f);
             // Debug.Log("debris collided with floor, died");
 
             //Spawn particle simulation upon death
@@ -76,8 +101,10 @@ gameObject.transform.position, 0.3f);
             GameObject obj = GameObject.Find("Global");
             GlobalScript g = obj.GetComponent<GlobalScript>();
 
-            // should decrease the starlight 
-            g.UpdateScore(-5);
+            // should decrease the starlight
+            //For testing
+            g.UpdateScore(5);
+            //g.UpdateScore(-5);
             Debug.Log("Score is: " + g.score); 
 
             //Spawn particle simulation upon death
@@ -86,75 +113,25 @@ gameObject.transform.position, 0.3f);
             Destroy(gameObject);
         }
 
+//        // debris hit player's head/hands/body -> decrease health 
+//        if (collider.CompareTag("Head") || collider.CompareTag("Body") || collider.CompareTag("LeftHand") || collider.CompareTag("RightHand"))
+//        {
+//            // Debug.Log("debris collided with " + collider.tag);
+//            AudioSource.PlayClipAtPoint(deathSound,
+//gameObject.transform.position, 0.3f);
+//            //Spawn particle simulation upon death
+//            Instantiate(this.deathExplosion, this.gameObject.transform.position,
+//            Quaternion.AngleAxis(-90, Vector3.right));
 
+//            // call global decrease health function  
+//            GameObject obj = GameObject.Find("Global");
+//            GlobalScript g = obj.GetComponent<GlobalScript>();
 
-        // debris hit player's head/hands/body -> decrease health 
-        if (collider.CompareTag("Head") || collider.CompareTag("Body") || collider.CompareTag("LeftHand") || collider.CompareTag("RightHand"))
-        {
-            // Debug.Log("debris collided with " + collider.tag);
-            AudioSource.PlayClipAtPoint(deathSound,
-gameObject.transform.position, 0.3f);
-            //Spawn particle simulation upon death
-            Instantiate(this.deathExplosion, this.gameObject.transform.position,
-            Quaternion.AngleAxis(-90, Vector3.right));
+//            // g.DecreaseHealth();
 
-            // call global decrease health function  
-            GameObject obj = GameObject.Find("Global");
-            GlobalScript g = obj.GetComponent<GlobalScript>();
-
-            // g.DecreaseHealth();
-
-            Destroy(gameObject);
-        }
+//            Destroy(gameObject);
+//        }
     }
-
-
-    /*    private void OnCollisionEnter(Collision collision)
-        {
-
-
-            Collider collider = collision.collider;
-            if (collider.CompareTag("Floor"))
-            {
-
-                AudioSource.PlayClipAtPoint(deathSound,
-    gameObject.transform.position, 0.3f);
-                // Debug.Log("debris collided with floor, died");
-
-                //Spawn particle simulation upon death
-                Instantiate(this.deathExplosion, this.gameObject.transform.position,
-                Quaternion.AngleAxis(-90, Vector3.right));
-                Destroy(gameObject);
-            }
-
-            if (collider.CompareTag("Jar"))
-            {
-                Debug.Log("new debris hit jar");
-                //Spawn particle simulation upon death
-                Instantiate(this.deathExplosion, this.gameObject.transform.position,
-                Quaternion.AngleAxis(-90, Vector3.right));
-                Destroy(gameObject);
-            }
-
-            // debris hit player's head/hands/body -> decrease health 
-            if (collider.CompareTag("Head") || collider.CompareTag("Body") || collider.CompareTag("LeftHand") || collider.CompareTag("RightHand"))
-            {
-                // Debug.Log("debris collided with " + collider.tag);
-                AudioSource.PlayClipAtPoint(deathSound,
-    gameObject.transform.position, 0.3f);
-                //Spawn particle simulation upon death
-                Instantiate(this.deathExplosion, this.gameObject.transform.position,
-                Quaternion.AngleAxis(-90, Vector3.right));
-
-                // call global decrease health function  
-                GameObject obj = GameObject.Find("Global");
-                GlobalScript g = obj.GetComponent<GlobalScript>();
-
-                // g.DecreaseHealth();
-
-                Destroy(gameObject);
-            }
-        }*/
 
     void Die()
     {

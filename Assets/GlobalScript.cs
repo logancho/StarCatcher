@@ -20,18 +20,18 @@ public class GlobalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // tiems up 
-        if (timeLeft == 0) {
-            if (hasWon()) 
+        if (hasWon())
+        {
+            Debug.Log("You win! :) ");
+        } else
+        {
+            if (timeLeft <= 0)
             {
-                // call win scene / UI 
-                Debug.Log("win :) ");
-            } else
-            {
-                // call lose scene / UI 
-                Debug.Log("lose :( "); 
+                Debug.Log("lose :( ");
             }
+            //Otherwise, you're still j playing
         }
+
     }
 
     public bool hasWon()
