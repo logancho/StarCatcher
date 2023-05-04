@@ -33,9 +33,7 @@ public class GameUIController : MonoBehaviour
     {
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
-        
-        // decrease time left 
-        g.timeLeft -= Time.deltaTime;
+
         if (g.timeLeft < 0) g.timeLeft = 0;
 
         int minutes = (int)(g.timeLeft / 60);
