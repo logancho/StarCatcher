@@ -52,6 +52,19 @@ public class NewStarScript : MonoBehaviour
             Die(); 
         }
 
+        // check if game has ended 
+        GameObject obj = GameObject.Find("Global");
+        GlobalScript g = obj.GetComponent<GlobalScript>();
+        if (g.stopGame) 
+        {
+            if (interactable.attachedToHand != null)
+            {
+                interactable.attachedToHand.DetachObject(gameObject, false);
+            }
+            Destroy(gameObject);
+        }
+        
+
         elapsedTime += Time.deltaTime;
         //transform
 

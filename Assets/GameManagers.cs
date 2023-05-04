@@ -8,58 +8,49 @@ using Valve.VR.Extras;
 public class GameManagers : MonoBehaviour
 {
     public GameObject startGamePanel;
+    public GameObject winGamePanel;
+    public GameObject loseGamePanel;
+    
+    
+    public SteamVR_LaserPointer laserPointerLeft;
+    public SteamVR_LaserPointer laserPointerRight;
+
     // Start is called before the first frame update
+    void Start()
+    {
+        startGamePanel.SetActive(true);
+        winGamePanel.SetActive(false) ;
+        loseGamePanel.SetActive(false);
+    }
+    
     public void StartGame()
     {
         Debug.Log("WHAAAt");
         startGamePanel.SetActive(false);
+        winGamePanel.SetActive(false);
+        loseGamePanel.SetActive(false);
+
+        // resume game 
+        GameObject obj = GameObject.Find("Global");
+        GlobalScript g = obj.GetComponent<GlobalScript>();
+        g.Start();
+        g.RestartGame();
+
+        // testing 
+        g.PowerUpActivated(); 
     }
-    /*
 
-    public SteamVR_LaserPointer laserPointerLeft;
-    public SteamVR_LaserPointer laserPointerRight;
-
-    void Awake()
+    public void WinGame()
     {
-        laserPointerLeft.PointerIn += PointerInside;
-        laserPointerLeft.PointerOut += PointerOutside;
-        laserPointerLeft.PointerClick += PointerClick;
+        winGamePanel.SetActive(true);
+        startGamePanel.SetActive(false);
+        loseGamePanel.SetActive(false);
     }
-
-    public void PointerClick(object sender, PointerEventArgs e)
+    
+    public void LoseGame()
     {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was clicked");
-        }
-        else if (e.target.name == "Button")
-        {
-            Debug.Log("Button was clicked");
-        }
+        loseGamePanel.SetActive(true);
+        startGamePanel.SetActive(false);
+        winGamePanel.SetActive(false);
     }
-
-    public void PointerInside(object sender, PointerEventArgs e)
-    {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was entered");
-        }
-        else if (e.target.name == "Button")
-        {
-            Debug.Log("Button was entered");
-        }
-    }
-
-    public void PointerOutside(object sender, PointerEventArgs e)
-    {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was exited");
-        }
-        else if (e.target.name == "Button")
-        {
-            Debug.Log("Button was exited");
-        }
-    }
-    */
 }
