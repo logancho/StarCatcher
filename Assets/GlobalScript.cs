@@ -9,7 +9,11 @@ public class GlobalScript : MonoBehaviour
     public int pointThreshold;
     public float timeLeft;
 
+    public float fireflyTimer;
+    public bool hasPowerUp; 
+
     private static GameManagers gameManagers;
+    public GameObject PowerUpPanel;
 
     public GameObject debrisManagerObj;
     public GameObject starManagerObj; 
@@ -22,17 +26,25 @@ public class GlobalScript : MonoBehaviour
         score = 0;
         health = 100;
         pointThreshold = 100;
-        timeLeft = 10;
-        stopGame = false; 
-        // timeLeft = 120; 
+        stopGame = false;
 
+        // powerup 
+        fireflyTimer = 10;
+        hasPowerUp = false; 
+
+        // timeLeft = 120; 
+        timeLeft = 20;
+        
         if (gameManagers == null)
         {
             gameManagers = FindObjectOfType<GameManagers>();
         }
 
         // only "start" game after button pressed 
-        PauseGame(); 
+        PauseGame();
+
+        // enabled powerup panel for testing 
+        // PowerUpPanel.SetActive(false); 
     }
 
     // Update is called once per frame
@@ -58,9 +70,36 @@ public class GlobalScript : MonoBehaviour
             }
         }
 
+        // decrease firefly timer 
+        if (hasPowerUp) {
+            
+            if (fireflyTimer > 0)
+            {
+                fireflyTimer -= Time.deltaTime;
+            }
+            else {
+                // reset powerup if timer is up 
+                PowerUpDeactivated(); 
+            }
+        }
+
         // decrease time left 
         timeLeft -= Time.deltaTime;
+
         // Debug.Log("time left: " + timeLeft);
+    }
+
+    public void PowerUpActivated()
+    {
+        hasPowerUp = true;
+        PowerUpPanel.SetActive(true);
+    }
+
+    public void PowerUpDeactivated()
+    {
+        hasPowerUp = false;
+        PowerUpPanel.SetActive(false);
+        fireflyTimer = 10; 
     }
 
     public bool hasWon()

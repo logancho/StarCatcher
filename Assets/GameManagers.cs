@@ -26,7 +26,10 @@ public class GameManagers : MonoBehaviour
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
         g.Start();
-        g.RestartGame(); 
+        g.RestartGame();
+
+        // testing 
+        g.PowerUpActivated(); 
     }
 
     public void WinGame()
