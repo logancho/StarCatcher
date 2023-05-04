@@ -10,10 +10,9 @@ public class GameManagers : MonoBehaviour
     public GameObject startGamePanel;
     public GameObject winGamePanel;
     public GameObject loseGamePanel;
-    
-    
-    public SteamVR_LaserPointer laserPointerLeft;
-    public SteamVR_LaserPointer laserPointerRight;
+    public GameObject leftHand;
+    public GameObject rightHand;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,7 @@ public class GameManagers : MonoBehaviour
     
     public void StartGame()
     {
-        Debug.Log("WHAAAt");
+        //Debug.Log("WHAAAt");
         startGamePanel.SetActive(false);
         winGamePanel.SetActive(false);
         loseGamePanel.SetActive(false);
@@ -37,7 +36,7 @@ public class GameManagers : MonoBehaviour
         g.RestartGame();
 
         // testing 
-        g.PowerUpActivated(); 
+        // g.PowerUpActivated(); 
     }
 
     public void WinGame()
@@ -45,6 +44,8 @@ public class GameManagers : MonoBehaviour
         winGamePanel.SetActive(true);
         startGamePanel.SetActive(false);
         loseGamePanel.SetActive(false);
+        DisplayLasers();
+
     }
     
     public void LoseGame()
@@ -52,5 +53,12 @@ public class GameManagers : MonoBehaviour
         loseGamePanel.SetActive(true);
         startGamePanel.SetActive(false);
         winGamePanel.SetActive(false);
+        DisplayLasers();
+    }
+
+    public void DisplayLasers()
+    {
+        leftHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = true;
+        rightHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = true;
     }
 }

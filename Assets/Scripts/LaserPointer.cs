@@ -34,20 +34,18 @@ public class LaserPointer : MonoBehaviour
 
             currentObject = hit.collider.gameObject;
 
-            string name = currentObject.name;
 
-            if (!SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && name == "Button")
+            if (!SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && currentObject.CompareTag("Button"))
             {
-                Debug.Log("Highlight");
+                //Debug.Log("Highlight");
                 ColorBlock cb = hit.collider.gameObject.GetComponent<Button>().colors;
                 cb.normalColor = Color.green;
                 hit.collider.gameObject.GetComponent<Button>().colors = cb;
             }
-            if (SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && name == "Button")
+            if (SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && currentObject.CompareTag("Button"))
             {
-                Debug.Log("Click");
+                //Debug.Log("Click");
                 hit.collider.gameObject.GetComponent<Button>().onClick.Invoke();
-                hit.collider.enabled = false;
                 leftHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
                 rightHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
             }

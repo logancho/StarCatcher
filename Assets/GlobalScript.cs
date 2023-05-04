@@ -44,7 +44,7 @@ public class GlobalScript : MonoBehaviour
         PauseGame();
 
         // enabled powerup panel for testing 
-        // PowerUpPanel.SetActive(false); 
+        PowerUpPanel.SetActive(false); 
     }
 
     // Update is called once per frame
@@ -142,7 +142,7 @@ public class GlobalScript : MonoBehaviour
         score = 0;
         health = 100;
         pointThreshold = 100;
-        timeLeft = 10;
+        timeLeft = 20;
         stopGame = false;
 
         // get debris manager - resume 
