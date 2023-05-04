@@ -15,6 +15,7 @@ TagManager:
   - LeftHand
   - RightHand
   - Jar
+  - Button
   layers:
   - Default
   - TransparentFX
