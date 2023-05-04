@@ -50,7 +50,6 @@ public class GlobalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // times up 
         if (timeLeft <= 0) {
             // pause game 
             PauseGame(); 

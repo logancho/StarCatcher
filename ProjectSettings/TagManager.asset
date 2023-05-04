@@ -15,6 +15,7 @@ TagManager:
   - LeftHand
   - RightHand
   - Jar
+  - FireFly
   - Button
   layers:
   - Default

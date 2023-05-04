@@ -72,6 +72,7 @@ public class NewDebrisManager : MonoBehaviour
         location.z += location.z * Random.Range(-directionRandomness, directionRandomness);
         return Quaternion.LookRotation(-location);
     }
+
     void SpawnDebris()
     {
         Vector3 randLocation = RandomSpawnLocation();
@@ -83,6 +84,7 @@ public class NewDebrisManager : MonoBehaviour
         Rigidbody rb = newDebris.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(0, 0, (20.0f + 150.0f * seed)));
     }
+
     // Start is called before the first frame update
     void Start()
     {
