@@ -49,29 +49,23 @@ public class Jar : MonoBehaviour
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    void OnParticleTrigger()
     {
-        Debug.Log("Bruh");
-        Destroy(other);
+        //ps = GameObject.Find("FireFlySystem").GetComponent<ParticleSystem>();
+        List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+
+        //ps.GetTriggerParticles(ParticleSystemTriggerEventType.E)
+        int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+        for (int i = 0; i < numEnter; i++)
+        {
+            ParticleSystem.Particle p = enter[i];
+            //p.position = new Vector3(-100, -100, -100);
+            p.remainingLifetime = 0;
+            //p.startSize = 0;
+            enter[i] = p;
+            Debug.Log("bruhhhh");
+        }
+        Debug.Log("huh");
+        //ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
     }
-
-    //void OnParticleTrigger()
-    //{
-    //    //ps = GameObject.Find("FireFlySystem").GetComponent<ParticleSystem>();
-    //    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
-
-    //    //ps.GetTriggerParticles(ParticleSystemTriggerEventType.E)
-    //    int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-    //    for (int i = 0; i < numEnter; i++)
-    //    {
-    //        ParticleSystem.Particle p = enter[i];
-    //        //p.position = new Vector3(-100, -100, -100);
-    //        p.remainingLifetime = 0;
-    //        //p.startSize = 0;
-    //        enter[i] = p;
-    //        Debug.Log("bruhhhh");
-    //    }
-    //    Debug.Log("huh");
-    //    //ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-    //}
 }
