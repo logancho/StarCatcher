@@ -22,7 +22,7 @@ TagManager:
   - NonGlow
   - Water
   - UI
-  - 
+  - VR UI Interaction
   - 
   - 
   - 
@@ -51,4 +51,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 3656014409
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 298999115
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 3702973897
     locked: 0

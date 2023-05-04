@@ -1,6 +1,9 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 namespace Valve.VR.Extras
 {
@@ -75,6 +78,7 @@ namespace Valve.VR.Extras
             if (PointerIn != null)
                 PointerIn(this, e);
         }
+
 
         public virtual void OnPointerClick(PointerEventArgs e)
         {
