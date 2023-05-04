@@ -15,4 +15,13 @@ public class FireFlyScript : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Jar"))
+        {
+            Debug.Log("firefly hit jar");
+            Destroy(gameObject);
+        }
+    }
 }

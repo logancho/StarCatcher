@@ -53,6 +53,7 @@ public class NewDebrisScript : MonoBehaviour
     // whenever debris collides with floor, should die 
     private void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("Bruh");
         if (collider.CompareTag("LeftHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand))
         {
             Debug.Log("Bruh");

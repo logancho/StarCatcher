@@ -9,6 +9,7 @@ public class Jar : MonoBehaviour
 {
     public GameObject starLiquid;
     GlobalScript gs;
+    ParticleSystem ps;
     float maxScale = 0.09f;
     float cur_scale;
     //0.09 scale = 0.016 z movement
@@ -23,6 +24,7 @@ public class Jar : MonoBehaviour
     void Start()
     {
         gs = GameObject.Find("Global").GetComponent<GlobalScript>();
+        ps = GameObject.Find("FireFlySystem").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -47,19 +49,29 @@ public class Jar : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerEnter(Collider collider)
+    private void OnParticleCollision(GameObject other)
     {
-        // check if debris hits the jar 
-        if (collider.CompareTag("Debris")) {
-            GameObject obj = GameObject.Find("Global");
-            GlobalScript g = obj.GetComponent<GlobalScript>();
-            // should decrease the starlight 
-            g.DecreaseHealth();
+        Debug.Log("Bruh");
+        Destroy(other);
+    }
 
-            // call debris die function 
-            NewDebrisScript debris = collider.gameObject.GetComponent<NewDebrisScript>();
+    //void OnParticleTrigger()
+    //{
+    //    //ps = GameObject.Find("FireFlySystem").GetComponent<ParticleSystem>();
+    //    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
 
-            Debug.Log("debris hit jar"); 
-        } 
-    }*/
+    //    //ps.GetTriggerParticles(ParticleSystemTriggerEventType.E)
+    //    int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+    //    for (int i = 0; i < numEnter; i++)
+    //    {
+    //        ParticleSystem.Particle p = enter[i];
+    //        //p.position = new Vector3(-100, -100, -100);
+    //        p.remainingLifetime = 0;
+    //        //p.startSize = 0;
+    //        enter[i] = p;
+    //        Debug.Log("bruhhhh");
+    //    }
+    //    Debug.Log("huh");
+    //    //ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+    //}
 }
