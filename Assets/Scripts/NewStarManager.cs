@@ -85,7 +85,7 @@ public class NewStarManager : MonoBehaviour
 
 
         float seed = Random.value;
-        seed = Bias(seed, 0.4f);
+        seed = Bias(seed, 0.45f);
 
         Rigidbody rb = newStar.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(0, 0, (10.0f + 190.0f * seed)));
@@ -102,7 +102,7 @@ public class NewStarManager : MonoBehaviour
         grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.Lerp(Color.magenta, Color.yellow, seed), 0.0f), new GradientColorKey(Color.red, 0.5f) }, new GradientAlphaKey[] { new GradientAlphaKey(seed * seed, 0.0f), new GradientAlphaKey(0.0f, 0.6f) });
         col.color = grad;
 
-        newStar.GetComponent<NewStarScript>().pointValue = Mathf.CeilToInt(seed * 50.0f);
+        newStar.GetComponent<NewStarScript>().pointValue = Mathf.CeilToInt(2.0f + seed * 5.0f);
         //Debug.Log("randLocation:");
         //Debug.Log(randLocation);
         //Debug.Log("Forward vector:");

@@ -47,8 +47,8 @@ public class LaserPointer : MonoBehaviour
             {
                 //Debug.Log("Click");
                 hit.collider.gameObject.GetComponent<Button>().onClick.Invoke();
-                leftHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
-                rightHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
+                //leftHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
+                //rightHand.GetComponent<SteamVR_LaserPointer>().pointer.GetComponent<MeshRenderer>().enabled = false;
             }
 
         }

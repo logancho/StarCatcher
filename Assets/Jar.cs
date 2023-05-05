@@ -40,7 +40,7 @@ public class Jar : MonoBehaviour
             }
             else
             {
-                cur_scale = 0;
+                cur_scale = 0.0001f;
             }
             liquid_scale.y = cur_scale;
             liquid_pos.z = CurZPosition(cur_scale);

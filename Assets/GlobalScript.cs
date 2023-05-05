@@ -19,7 +19,8 @@ public class GlobalScript : MonoBehaviour
     public GameObject starManagerObj;
     public GameObject fireFlyObj;
 
-    public bool stopGame; 
+    public bool stopGame;
+    public bool startedGame; 
 
     // Start is called before the first frame update
     public void Start()
@@ -30,11 +31,11 @@ public class GlobalScript : MonoBehaviour
         stopGame = false;
 
         // powerup 
-        fireflyTimer = 10;
+        fireflyTimer = 5;
         hasPowerUp = false; 
 
         // timeLeft = 120; 
-        timeLeft = 20;
+        timeLeft = 90;
         
         if (gameManagers == null)
         {
@@ -52,6 +53,12 @@ public class GlobalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasWon())
+        {
+            Debug.Log("win :) ");
+            gameManagers.WinGame();
+        }
+
         if (timeLeft <= 0) {
             // pause game 
             PauseGame(); 
@@ -85,7 +92,11 @@ public class GlobalScript : MonoBehaviour
         }
 
         // decrease time left 
-        timeLeft -= Time.deltaTime;
+        // if game started 
+        if (startedGame) {
+            timeLeft -= Time.deltaTime;
+        }
+        
 
         // Debug.Log("time left: " + timeLeft);
     }
@@ -96,13 +107,16 @@ public class GlobalScript : MonoBehaviour
         fireflyTimer = 10;
         PowerUpPanel.SetActive(true);
         debrisManagerObj.SetActive(false);
+
+        // play sound 
+        gameManagers.playFireflySound(); 
     }
 
     public void PowerUpDeactivated()
     {
         hasPowerUp = false;
         PowerUpPanel.SetActive(false);
-        fireflyTimer = 10;
+        fireflyTimer = 5;
         debrisManagerObj.SetActive(true);
     }
 
@@ -114,6 +128,10 @@ public class GlobalScript : MonoBehaviour
     public void UpdateScore(int pointValue)
     {
         score += pointValue;
+        if (score < 0)
+        {
+            score = 0;
+        }
         // Debug.Log("score: " + score); 
     }
 
@@ -128,26 +146,28 @@ public class GlobalScript : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
         stopGame = true;
+        startedGame = false;
 
-        // get debris manager - puase 
+        // get debris manager - pause 
         debrisManagerObj.SetActive(false);
 
         // get star manager - pause 
         starManagerObj.SetActive(false);
 
+        // get fire fly - pause 
         fireFlyObj.SetActive(false);
     }
     public void RestartGame()
     {
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
      
         // resetting 
         score = 0;
         health = 100;
         pointThreshold = 100;
-        timeLeft = 20;
+        timeLeft = 90;
         stopGame = false;
 
         // get debris manager - resume 
@@ -157,5 +177,7 @@ public class GlobalScript : MonoBehaviour
         starManagerObj.SetActive(true);
 
         fireFlyObj.SetActive(true);
+
+        startedGame = true; 
     }
 }
