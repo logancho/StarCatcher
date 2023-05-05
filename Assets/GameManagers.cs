@@ -12,7 +12,7 @@ public class GameManagers : MonoBehaviour
     public GameObject loseGamePanel;
     public GameObject leftHand;
     public GameObject rightHand;
-
+    public GameObject PowerUpPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +20,15 @@ public class GameManagers : MonoBehaviour
         startGamePanel.SetActive(true);
         winGamePanel.SetActive(false) ;
         loseGamePanel.SetActive(false);
+        PowerUpPanel.SetActive(false);
     }
     
     public void StartGame()
     {
-        //Debug.Log("WHAAAt");
         startGamePanel.SetActive(false);
         winGamePanel.SetActive(false);
         loseGamePanel.SetActive(false);
+        PowerUpPanel.SetActive(false);
 
         // resume game 
         GameObject obj = GameObject.Find("Global");
@@ -44,6 +45,7 @@ public class GameManagers : MonoBehaviour
         winGamePanel.SetActive(true);
         startGamePanel.SetActive(false);
         loseGamePanel.SetActive(false);
+        PowerUpPanel.SetActive(false);
         DisplayLasers();
 
     }
@@ -53,6 +55,7 @@ public class GameManagers : MonoBehaviour
         loseGamePanel.SetActive(true);
         startGamePanel.SetActive(false);
         winGamePanel.SetActive(false);
+        PowerUpPanel.SetActive(false);
         DisplayLasers();
     }
 

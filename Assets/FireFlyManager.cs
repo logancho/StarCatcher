@@ -22,13 +22,11 @@ public class FireFlyManager : MonoBehaviour
         for (int i = 0; i < numEnter; i++)
         {
             ParticleSystem.Particle p = enter[i];
-            //p.position = new Vector3(-100, -100, -100);
             p.remainingLifetime = 0;
-            //p.startSize = 0;
             enter[i] = p;
-            Debug.Log("bruhhhh");
         }
-        Debug.Log("Particle ran into Jar");
+        Debug.Log("hit jar");
+        GameObject.Find("Global").GetComponent<GlobalScript>().PowerUpActivated();
         ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
     }
 }

@@ -34,7 +34,7 @@ public class LaserPointer : MonoBehaviour
 
             currentObject = hit.collider.gameObject;
 
-
+            /*
             if (!SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && currentObject.CompareTag("Button"))
             {
                 //Debug.Log("Highlight");
@@ -42,6 +42,7 @@ public class LaserPointer : MonoBehaviour
                 cb.normalColor = Color.green;
                 hit.collider.gameObject.GetComponent<Button>().colors = cb;
             }
+            */
             if (SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any) && currentObject.CompareTag("Button"))
             {
                 //Debug.Log("Click");

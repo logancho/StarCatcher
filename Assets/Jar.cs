@@ -49,6 +49,7 @@ public class Jar : MonoBehaviour
         }
     }
 
+    /*
     void OnParticleTrigger()
     {
         //ps = GameObject.Find("FireFlySystem").GetComponent<ParticleSystem>();
@@ -68,4 +69,5 @@ public class Jar : MonoBehaviour
         Debug.Log("huh");
         //ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
     }
+    */
 }

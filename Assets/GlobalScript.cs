@@ -16,7 +16,8 @@ public class GlobalScript : MonoBehaviour
     public GameObject PowerUpPanel;
 
     public GameObject debrisManagerObj;
-    public GameObject starManagerObj; 
+    public GameObject starManagerObj;
+    public GameObject fireFlyObj;
 
     public bool stopGame; 
 
@@ -46,6 +47,7 @@ public class GlobalScript : MonoBehaviour
         // enabled powerup panel for testing 
         PowerUpPanel.SetActive(false); 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -91,14 +93,17 @@ public class GlobalScript : MonoBehaviour
     public void PowerUpActivated()
     {
         hasPowerUp = true;
+        fireflyTimer = 10;
         PowerUpPanel.SetActive(true);
+        debrisManagerObj.SetActive(false);
     }
 
     public void PowerUpDeactivated()
     {
         hasPowerUp = false;
         PowerUpPanel.SetActive(false);
-        fireflyTimer = 10; 
+        fireflyTimer = 10;
+        debrisManagerObj.SetActive(true);
     }
 
     public bool hasWon()
@@ -131,7 +136,8 @@ public class GlobalScript : MonoBehaviour
 
         // get star manager - pause 
         starManagerObj.SetActive(false);
-   
+
+        fireFlyObj.SetActive(false);
     }
     public void RestartGame()
     {
@@ -150,5 +156,6 @@ public class GlobalScript : MonoBehaviour
         // get star manager - resume 
         starManagerObj.SetActive(true);
 
+        fireFlyObj.SetActive(true);
     }
 }

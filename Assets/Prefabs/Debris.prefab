@@ -225,6 +225,7 @@ MonoBehaviour:
   deathExplosion: {fileID: 6370250761588150306, guid: b997ca9e7d9afe64ca4dbc4b96b629e8,
     type: 3}
   deathSound: {fileID: 8300000, guid: 56588980b541a4017846e219eb6bd965, type: 3}
+  collectSound: {fileID: 8300000, guid: 7e8a0607d85a3427195e86eed05e6350, type: 3}
   growTime: 3
   scale: 0.87
 --- !u!65 &-8705222427617305449
