@@ -22,6 +22,6 @@ public class JarUI : MonoBehaviour
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
         scoreText.color = Color.white;
-        scoreText.text = "Remaining Star Points: " + g.score.ToString() + " / " + g.pointThreshold.ToString();
+        scoreText.text = "Star Points: " + g.score.ToString() + " / " + g.pointThreshold.ToString();
     }
 }

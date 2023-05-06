@@ -56,6 +56,7 @@ public class GlobalScript : MonoBehaviour
         if (hasWon())
         {
             Debug.Log("win :) ");
+            PauseGame(); 
             gameManagers.WinGame();
         }
 

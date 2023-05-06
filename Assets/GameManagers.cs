@@ -22,10 +22,6 @@ public class GameManagers : MonoBehaviour
     public AudioSource loseAudioSource;
     public AudioSource winAudioSource;
 
-/*    public AudioClip gameBgMusic;
-    public AudioClip winBgMusic;
-    public AudioClip loseBgMusic;*/
-
     private bool playingRegMusic; 
 
     // Start is called before the first frame update
@@ -42,6 +38,7 @@ public class GameManagers : MonoBehaviour
 
     public void startTutorial()
     {
+        Debug.Log("bruhhhh");
         winGamePanel.SetActive(false);
         startGamePanel.SetActive(false);
         loseGamePanel.SetActive(false);
@@ -57,25 +54,44 @@ public class GameManagers : MonoBehaviour
 
     public void playWinMusic()
     {
-        bgAudioSource.Stop();
-        winAudioSource.Play();
-        loseAudioSource.Stop();
+        /*   bgAudioSource.Stop();
+           winAudioSource.Play();
+           loseAudioSource.Stop();*/
+
+
+        bgAudioSource.mute = true;
+        winAudioSource.mute = false; 
+        loseAudioSource.mute = true;
         playingRegMusic = false;
+
+        
+
+        Debug.Log("PLAYING WIN MUSIC"); 
     }
 
     public void playLoseMusic()
     {
-        bgAudioSource.Stop();
+        /*bgAudioSource.Stop();
         winAudioSource.Stop();
-        loseAudioSource.Play();
+        loseAudioSource.Play();*/
+
+        bgAudioSource.mute = true;
+        winAudioSource.mute = true;
+        loseAudioSource.mute = false;
         playingRegMusic = false;
     }
 
     public void playRegMusic()
     {
-        bgAudioSource.Play();
-        winAudioSource.Stop();
-        loseAudioSource.Stop();
+        /*        bgAudioSource.Play();
+                winAudioSource.Stop();
+                loseAudioSource.Stop();*/
+
+
+        bgAudioSource.mute = false;
+        winAudioSource.mute = true;
+        loseAudioSource.mute = true;
+
         playingRegMusic = true;
     }
 
@@ -118,7 +134,7 @@ public class GameManagers : MonoBehaviour
         tutorialPanel.SetActive(false);
         DisplayLasers();
         
-        // playWinMusic();
+        playWinMusic();
 
         
 
@@ -133,7 +149,7 @@ public class GameManagers : MonoBehaviour
         tutorialPanel.SetActive(false);
         DisplayLasers();
 
-        // playLoseMusic();
+        playLoseMusic();
     }
 
     public void DisplayLasers()

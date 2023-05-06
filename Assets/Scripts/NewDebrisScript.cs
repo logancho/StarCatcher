@@ -33,26 +33,23 @@ public class NewDebrisScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-            Debug.Log("held tag is: " + this.gameObject.tag);
+            Debug.Log("hmmmmm " + this.gameObject.tag);
             Die(); 
         }
-
+        */
         // check if game has ended 
         GameObject obj = GameObject.Find("Global");
         GlobalScript g = obj.GetComponent<GlobalScript>();
+        
         if (g.stopGame)
         {
-            if (interactable.attachedToHand != null)
-            {
-                interactable.attachedToHand.DetachObject(gameObject, false);
-            }    
-                
             Destroy(gameObject);
         }
-
+        
         elapsedTime += Time.deltaTime;
 
         if (elapsedTime <= growTime)
@@ -65,10 +62,11 @@ public class NewDebrisScript : MonoBehaviour
     // whenever debris collides with floor, should die 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Bruh");
+        //Debug.Log("Bruh");
+        
         if (collider.CompareTag("LeftHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand))
         {
-            Debug.Log("Bruh");
+            Debug.Log("Left hand caught asteroid");
 
             //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             Debug.Log("held tag is: " + this.gameObject.tag);
@@ -81,7 +79,7 @@ public class NewDebrisScript : MonoBehaviour
 
         if (collider.CompareTag("RightHand") && SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.RightHand))
         {
-            Debug.Log("Bruh");
+            Debug.Log("Right hand caught asteroid");
 
             //SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             Debug.Log("held tag is: " + this.gameObject.tag);
@@ -91,7 +89,8 @@ public class NewDebrisScript : MonoBehaviour
 
             Die();
         }
-
+        
+        
         if (collider.CompareTag("Floor"))
         {
 
@@ -115,7 +114,7 @@ public class NewDebrisScript : MonoBehaviour
 
             // should decrease the starlight
             //For testing
-            g.UpdateScore(-15);
+            g.UpdateScore(-5);
             Debug.Log("Score is: " + g.score); 
 
             //Spawn particle simulation upon death
@@ -123,7 +122,7 @@ public class NewDebrisScript : MonoBehaviour
             Quaternion.AngleAxis(-90, Vector3.right));
             Destroy(gameObject);
         }
-
+        
     }
 
     void Die()
